@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "orion-socialnetwork",
+  "private_key_id": "88b3dd3edfcbfc806e3893fdb22e6dc2524fd9df",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDn8dTRHsNZmL7Z\nMQxZS3vlyuTMvMOYuuVa4fU68v+Dr/Fa/FRQInhTdw35GK8J4qyYbiaW8ohM1OiD\nOcDp9nWK6U0ZZepxtX8Tjm+ifEgS4usbWGXCxOcP1tUhwe8n3thePUFTyS98yNAl\nFVeWxw8nRwnK8JSb3PxLDfidMU2o4i6i/4ymnwVeWI2DhCOdCQLT17waR6KWKHiz\nTtL900pqGET+VyJklKyfwNTSOxfMxu2jr+Wd/GoB/ZoXggBy58clJ9kqk09rcUxB\nsfKKwnQnuZfx7d+k9AkOzyVOQUHSNR1S3t5B/cixJWpuw0nxL0Fn7LSFttjsBLFX\n5Mxw0iY9AgMBAAECggEAIPQaX5WxJ9x27QZgx0UIDCy97MVlksr8RWPKGCnTGgNt\nf+xOvE3mw5EBfWJqPWDPqHPUlr326yzqq048IDbXGg6DLjhtIoz99NTX+9a61LgZ\nss+7MXy73rkP8epgT01Zd1YuSbhRP2I2ibY/tK6BHXxPIglOoTBjRfSXsxmrUMgr\nSJpvM0kYGrac26IK2zGc7WSGNTNHDJMYJlkShTZoMf0dlwCgoy8PWVgP+MUshQHy\n/GAFKyOEd/Kg3YYzn/TFClnK+BhyxNBujNEB8a6OttFpC91nw8aTvyV7PcgUtD6+\nynXi7JFE4YChyqBQy/+W/Q8kOKfZDxqPXD9IiBg77wKBgQDzw12WxhRbWb3/aNQU\ndMldVJeBLuHWt5kCmWClmh3pTEKKze7jPwMPJUG+UCpr8kWP4I1kGJ/9/vZbuFpL\nwdhRCjFFtlZGR9A/rq6iS0YqQ3vTSGjReWWbXvHqLmMptGkKGKJDIt6E3kzxUZ/p\n60J17LgnThUAtwcew2A4/kCYvwKBgQDzlpWpj9RzmDZcY3nVGhzvzJHPlPUS5QpZ\nIi1Q5i7DQ2tri1GiOeGgQOGB3ffyQ9JLbb0ZItc+Rau3lCzZAIsiKcl2qESsboov\n5tJj35dnsG4kj/mFOQhfULX2sIk4lQ/4YO8fSlsCsmlhcGeuXz3vJ7GTresIK99+\nyjRyU0qkAwKBgQDmpumbjPoeJiB92Hc0k/0lbrGc7vuK7Fa/+tlUWSwMYLhmFs4A\nANOoNRysM7awRaJErbmcCSD6eZIq35mxLU69/+L3j7y666DFYUilEIzn2MsF9PIZ\no8Dc704AxLvX7nmlsAF5fTkIiEBN52plMNLGOqNVrbB56LW4Ci62Pv5oiQKBgAS4\naFIO3XkX/AWyT8wXY3QqLLEvG8iv85FinioxK7rQ9aXx3zUblgm6+CPCH2nscojP\nqZhxGma0hu1Zy7ywzAFved34yMvmoHrpKC6TSKXTv26p85XnUwg10jDjnuUfzl1r\n03ZxxG2681vWB8xTQCoAROqtth5Ea2JTnMySXKHtAoGBAMmFnjHF0kIsozMorDyG\nrHwdDhXqdevSt+IxOl1s3/LcrCSj8nSw1Bq/SAH6tTGVO5j9dDsSDOPwCZJURcmb\nCNKaQc5afx5tjWxix0cB6JMswDUtMvXTSPgOFwRsvvAv0SvS5TiK+XqOfrkmZVTm\nnlqbLBXmEVmL653VuRXMaX9V\n-----END PRIVATE KEY-----\n",
+  "client_email": "orion-socialnetwork@appspot.gserviceaccount.com",
+  "client_id": "110338364396817299291",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/orion-socialnetwork%40appspot.gserviceaccount.com"
+}
