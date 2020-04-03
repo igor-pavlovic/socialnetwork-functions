@@ -177,6 +177,7 @@ exports.likeStory = (req, res) => {
     .then(doc => {
       if (doc.exists) {
         storyData = doc.data();
+        storyData.storyId = doc.id;
         return likeDocument.get();
       } else {
         return res.status(404).json({ error: "Story not found." });
@@ -225,6 +226,7 @@ exports.unlikeStory = (req, res) => {
     .then(doc => {
       if (doc.exists) {
         storyData = doc.data();
+        storyData.storyId = doc.id;
         return likeDocument.get();
       } else {
         return res.status(404).json({ error: "Story not found." });
