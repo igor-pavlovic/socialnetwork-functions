@@ -2,6 +2,9 @@ const firebase = require("firebase");
 const functions = require("firebase-functions");
 const app = require("express")();
 const { db } = require("./util/admin");
+const cors = require("cors");
+
+app.use(cors());
 
 // Middleware
 const FBAuth = require("./util/FBAuth");
@@ -14,7 +17,7 @@ const {
   deleteStory,
   postComment,
   likeStory,
-  unlikeStory
+  unlikeStory,
 } = require("./handlers/stories");
 const {
   signup,
@@ -23,7 +26,7 @@ const {
   addUserDetails,
   getAuthenticatedUser,
   getUserDetails,
-  markNotificationsRead
+  markNotificationsRead,
 } = require("./handlers/users");
 
 /* 
@@ -56,11 +59,11 @@ exports.api = functions.region("europe-west1").https.onRequest(app);
 exports.createNotificationOnLike = functions
   .region("europe-west1")
   .firestore.document("likes/{id}")
-  .onCreate(snapshot => {
+  .onCreate((snapshot) => {
     return db
-      .doc(`/story/${snapshot.data().storyId}`)
+      .doc(`/stories/${snapshot.data().storyId}`)
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (
           doc.exists &&
           doc.data().userHandle !== snapshot.data().userHandle
@@ -71,23 +74,23 @@ exports.createNotificationOnLike = functions
             sender: snapshot.data().userHandle,
             type: "like",
             read: false,
-            storyId: doc.id
+            storyId: doc.id,
           });
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   });
 
 exports.deleteNotificationOnUnlike = functions
   .region("europe-west1")
-  .firestore.document("comments/{id}")
-  .onDelete(snapshot => {
+  .firestore.document("likes/{id}")
+  .onDelete((snapshot) => {
     return db
       .doc(`/notifications/${snapshot.id}`)
       .delete()
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         return;
       });
@@ -96,11 +99,11 @@ exports.deleteNotificationOnUnlike = functions
 exports.createNotificationOnComment = functions
   .region("europe-west1")
   .firestore.document("comments/{id}")
-  .onCreate(snapshot => {
+  .onCreate((snapshot) => {
     return db
-      .doc(`/story/${snapshot.data().storyId}`)
+      .doc(`/stories/${snapshot.data().storyId}`)
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (
           doc.exists &&
           doc.data().userHandle !== snapshot.data().userHandle
@@ -111,11 +114,11 @@ exports.createNotificationOnComment = functions
             sender: snapshot.data().userHandle,
             type: "comment",
             read: false,
-            storyId: doc.id
+            storyId: doc.id,
           });
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         return;
       });
@@ -124,7 +127,7 @@ exports.createNotificationOnComment = functions
 exports.onUserImageChange = functions
   .region("europe-west1")
   .firestore.document("/users/{userId}")
-  .onUpdate(change => {
+  .onUpdate((change) => {
     console.log(change.before.data());
     console.log(change.after.data());
     if (change.before.data().imageUrl !== change.after.data().imageUrl) {
@@ -134,8 +137,8 @@ exports.onUserImageChange = functions
         .collection("stories")
         .where("userHandle", "==", change.before.data().userHandle)
         .get()
-        .then(data => {
-          data.forEach(doc => {
+        .then((data) => {
+          data.forEach((doc) => {
             const story = db.doc(`/stories/${doc.id}`);
             batch.update(story, { userImage: change.after.data().imageUrl });
           });
@@ -155,17 +158,14 @@ exports.onStoryDelete = functions
       .collection("comments")
       .where("storyId", "==", storyId)
       .get()
-      .then(data => {
-        data.forEach(doc => {
+      .then((data) => {
+        data.forEach((doc) => {
           batch.delete(db.doc(`/comments/${doc.id}`));
         });
-        return db
-          .collection("likes")
-          .where("storyId", "==", storyId)
-          .get();
+        return db.collection("likes").where("storyId", "==", storyId).get();
       })
-      .then(data => {
-        data.forEach(doc => {
+      .then((data) => {
+        data.forEach((doc) => {
           batch.delete(db.doc(`/likes/${doc.id}`));
         });
         return db
@@ -173,13 +173,11 @@ exports.onStoryDelete = functions
           .where("storyId", "==", storyId)
           .get();
       })
-      .then(data => {
-        data.forEach(doc => {
+      .then((data) => {
+        data.forEach((doc) => {
           batch.delete(db.doc(`/notifications/${doc.id}`));
         });
         return batch.commit();
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   });
-
-  
