@@ -14,16 +14,16 @@ Route: </br>
 method: POST </br>
 required fields: </br>
     email             // String </br>
-    password          // String   
-    confirmPassword   // String
-    userHandle        // String
-returns:
-    token             // String, JSON Web Token 
+    password          // String </br>  
+    confirmPassword   // String </br>
+    userHandle        // String </br>
+returns: </br>
+    token             // String, JSON Web Token </br>
 </p>    
 ### /login 
-method: POST    
-required fields: 
-    email             // String
-    password          // String 
-returns:
-    token             // String, JSON Web Token 
+method: POST </br>   
+required fields: </br>
+    email             // String </br>
+    password          // String </br>
+returns: </br>
+    token             // String, JSON Web Token </br>
