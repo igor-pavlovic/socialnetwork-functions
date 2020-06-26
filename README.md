@@ -16,13 +16,17 @@ Route: </br>
 ### /signup 
 <p>
 method: POST </br>
-required fields: </br>
-    email             // String </br>
-    password          // String </br>  
-    confirmPassword   // String </br>
-    userHandle        // String </br>
+required fields:
+<ul>
+    <li>email             // String </li>
+    <li>password          // String </li>  
+    <li>confirmPassword   // String </li>
+    <li>userHandle        // String </li>
+</ul>
 returns: </br>
-    token             // String, JSON Web Token </br>
+<ul>
+    <li>token             // String, JSON Web Token </li>
+</ul>
 </p>    
 
 ### /login 
